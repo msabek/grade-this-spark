@@ -2,11 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, Zap, Target } from "lucide-react";
 import { motion } from "framer-motion";
-// import Scene3D from "./Scene3D";
+import Scene3D from "./Scene3D";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <Scene3D />
+      
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       
