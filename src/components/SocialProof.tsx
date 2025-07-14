@@ -55,48 +55,54 @@ const SocialProof = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-tr from-background to-background/80 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-8">
+        <div className="absolute top-1/4 left-1/5 w-72 h-72 bg-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/3 right-1/5 w-56 h-56 bg-primary rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+            <div key={index} className="text-center group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-smooth">{stat.number}</div>
+              <div className="text-muted-foreground font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Testimonials */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
             Trusted by Leading Institutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             See what educators are saying about their experience with GradeThis Pro
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 relative">
+          <div className="bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:p-12 relative shadow-glow">
             <div className="flex items-center justify-center mb-6">
               {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                <Star key={i} className="h-6 w-6 text-accent fill-current" />
               ))}
             </div>
             
-            <blockquote className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed">
+            <blockquote className="text-xl md:text-2xl text-foreground text-center mb-8 leading-relaxed">
               "{testimonials[currentTestimonial].content}"
             </blockquote>
             
             <div className="text-center">
-              <div className="font-bold text-gray-900 text-lg">
+              <div className="font-bold text-foreground text-lg">
                 {testimonials[currentTestimonial].name}
               </div>
-              <div className="text-gray-600">
+              <div className="text-muted-foreground">
                 {testimonials[currentTestimonial].title}
               </div>
-              <div className="text-blue-600 font-semibold">
+              <div className="text-primary font-semibold">
                 {testimonials[currentTestimonial].university}
               </div>
             </div>
@@ -106,7 +112,7 @@ const SocialProof = () => {
                 variant="outline"
                 size="sm"
                 onClick={prevTestimonial}
-                className="rounded-full w-12 h-12 p-0"
+                className="rounded-full w-12 h-12 p-0 border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-glow transition-smooth"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -114,7 +120,7 @@ const SocialProof = () => {
                 variant="outline"
                 size="sm"
                 onClick={nextTestimonial}
-                className="rounded-full w-12 h-12 p-0"
+                className="rounded-full w-12 h-12 p-0 border-primary/20 hover:bg-primary hover:text-primary-foreground hover:shadow-glow transition-smooth"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
@@ -124,12 +130,12 @@ const SocialProof = () => {
 
         {/* University Logos */}
         <div className="mt-16">
-          <p className="text-center text-gray-600 mb-8 font-medium">
+          <p className="text-center text-muted-foreground mb-8 font-medium">
             Trusted by leading universities worldwide
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             {universities.map((university, index) => (
-              <div key={index} className="text-gray-500 font-semibold text-lg">
+              <div key={index} className="text-muted-foreground font-semibold text-lg hover:text-primary transition-smooth cursor-pointer">
                 {university}
               </div>
             ))}

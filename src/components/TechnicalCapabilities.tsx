@@ -40,13 +40,19 @@ const TechnicalCapabilities = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-bl from-background via-background/95 to-background/90 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-primary rounded-full blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-accent rounded-full blur-3xl animate-pulse delay-300"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
             Technical Capabilities
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Built for flexibility and integration with your existing educational technology stack
           </p>
         </div>
@@ -55,18 +61,18 @@ const TechnicalCapabilities = () => {
           {Object.entries(capabilities).map(([category, items], index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 shadow-glow hover:shadow-glow transition-smooth hover:scale-105"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-4 border-b border-gray-200">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6 pb-4 border-b border-primary/20">
                 {category}
               </h3>
               <ul className="space-y-4">
                 {items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-center space-x-3">
-                    <div className="bg-blue-100 rounded-full p-1">
-                      <div className="bg-blue-600 rounded-full w-2 h-2"></div>
+                    <div className="bg-primary/10 rounded-full p-1">
+                      <div className="bg-primary rounded-full w-2 h-2 shadow-glow"></div>
                     </div>
-                    <span className="text-gray-700 font-medium">{item}</span>
+                    <span className="text-muted-foreground font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -75,9 +81,9 @@ const TechnicalCapabilities = () => {
         </div>
         
         <div className="text-center mt-12">
-          <div className="bg-blue-600 text-white rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="gradient-primary text-primary-foreground rounded-2xl p-8 max-w-4xl mx-auto shadow-glow">
             <h3 className="text-2xl font-bold mb-4">Enterprise-Grade Security</h3>
-            <p className="text-blue-100 text-lg">
+            <p className="text-primary-foreground/80 text-lg">
               SOC 2 Type II compliant • GDPR ready • FERPA compliant • End-to-end encryption • Regular security audits
             </p>
           </div>

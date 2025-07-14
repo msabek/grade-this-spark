@@ -79,13 +79,19 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-tr from-background to-background/80 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-primary rounded-full blur-3xl animate-pulse"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
             Powerful Features for Modern Education
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover the comprehensive toolkit that makes GradeThis Pro the choice of leading educational institutions worldwide
           </p>
         </div>
@@ -96,30 +102,30 @@ const Features = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-gray-50 rounded-2xl border-0 overflow-hidden"
+                className="bg-card/60 backdrop-blur-sm border border-primary/20 rounded-2xl overflow-hidden shadow-glow hover:shadow-glow transition-smooth"
               >
-                <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-gray-100 transition-colors">
+                <AccordionTrigger className="px-8 py-6 hover:no-underline hover:bg-primary/5 transition-smooth">
                   <div className="flex items-center space-x-4 text-left">
-                    <div className="bg-blue-100 p-3 rounded-xl">
-                      <feature.icon className="h-6 w-6 text-blue-600" />
+                    <div className="bg-primary/10 p-3 rounded-xl shadow-glow">
+                      <feature.icon className="h-6 w-6 text-primary" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-xl font-semibold text-gray-900">
+                      <h3 className="text-xl font-semibold text-foreground">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-muted-foreground">
                         {feature.description}
                       </p>
                     </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-8 pb-6">
-                  <div className="bg-white rounded-xl p-6 ml-16">
+                  <div className="bg-card/80 rounded-xl p-6 ml-16 border border-primary/10">
                     <ul className="space-y-3">
                       {feature.details.map((detail, detailIndex) => (
                         <li key={detailIndex} className="flex items-start space-x-3">
-                          <div className="bg-blue-600 rounded-full w-2 h-2 mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-700">{detail}</span>
+                          <div className="bg-primary rounded-full w-2 h-2 mt-2 flex-shrink-0 shadow-glow"></div>
+                          <span className="text-muted-foreground">{detail}</span>
                         </li>
                       ))}
                     </ul>
